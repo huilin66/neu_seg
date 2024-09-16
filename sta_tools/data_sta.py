@@ -240,17 +240,19 @@ def list_range_sta1(imgs_list, save_path, img_chs=Img_chs):
 
 if __name__ == '__main__':
     pass
-    img_dir_train = r'D:\202410_defecttest\NEU_Seg_Data\images\training'
-    img_dir_test = r'D:\202410_defecttest\NEU_Seg_Data\images\test'
-    gt_dir_train = r'D:\202410_defecttest\NEU_Seg_Data\annotations\training'
-    gt_dir_test = r'D:\202410_defecttest\NEU_Seg_Data\annotations\test'
-    os.makedirs(r'D:\202410_defecttest\NEU_Seg_Data\sta', exist_ok=True)
+    ROOT_DIR = r'E:\repository\mmsegmentation\data\NEU_Seg'
+    img_dir_train = os.path.join(ROOT_DIR, 'images', 'training')
+    img_dir_test = os.path.join(ROOT_DIR, 'images', 'test')
+    gt_dir_train = os.path.join(ROOT_DIR, 'annotations', 'training')
+    gt_dir_test = os.path.join(ROOT_DIR, 'annotations', 'test')
+    sta_dir = os.path.join(ROOT_DIR, 'sta')
+    os.makedirs(sta_dir, exist_ok=True)
 
-    # dir_shape_sta(img_dir_train, r'D:\202410_defecttest\NEU_Seg_Data\sta\shape_train.csv')
-    # dir_shape_sta(img_dir_test, r'D:\202410_defecttest\NEU_Seg_Data\sta\shape_test.csv')
-    # dir_class_sta(gt_dir_train, r'D:\202410_defecttest\NEU_Seg_Data\sta\gt_train.csv')
-    # dir_class_sta(gt_dir_test, r'D:\202410_defecttest\NEU_Seg_Data\sta\gt_test.csv')
-    # dir_ms_sta(img_dir_train, r'D:\202410_defecttest\NEU_Seg_Data\sta\ms_train.csv')
-    # dir_ms_sta(img_dir_test, r'D:\202410_defecttest\NEU_Seg_Data\sta\ms_test.csv')
-    # dir_range_sta(img_dir_train, r'D:\202410_defecttest\NEU_Seg_Data\sta\range_train.csv')
-    # dir_range_sta(img_dir_test, r'D:\202410_defecttest\NEU_Seg_Data\sta\range_test.csv')
+    dir_shape_sta(img_dir_train, os.path.join(sta_dir, 'shape_train.csv'))
+    dir_shape_sta(img_dir_test, os.path.join(sta_dir, 'shape_test.csv'))
+    dir_class_sta(gt_dir_train, os.path.join(sta_dir, 'gt_train.csv'))
+    dir_class_sta(gt_dir_test, os.path.join(sta_dir, 'gt_test.csv'))
+    dir_ms_sta(img_dir_train, os.path.join(sta_dir, 'ms_train.csv'))
+    dir_ms_sta(img_dir_test, os.path.join(sta_dir, 'ms_test.csv'))
+    dir_range_sta(img_dir_train, os.path.join(sta_dir, 'range_train.csv'))
+    dir_range_sta(img_dir_test, os.path.join(sta_dir, 'range_test.csv'))
